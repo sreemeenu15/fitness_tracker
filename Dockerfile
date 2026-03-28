@@ -1,9 +1,14 @@
-# Use official Java image
-FROM eclipse-temurin:17
+# Step 1: Build stage
+FROM maven:3.9.9-eclipse-temurin-17 AS builder
+WORKDIR /app
 
-# Copy jar file
-ARG JAR_FILE=target/*.jar
-COPY ${JAR_FILE} app.jar
+COPY . .
+RUN mvn clean package -DskipTests
 
-# Run the application
-ENTRYPOINT ["java","-jar","/app.jar"]
+# Step 2: Run stage
+FROM eclipse-temurin:17-jdk
+WORKDIR /app
+
+COPY --from=builder /app/target/*.jar app.jar
+
+ENTRYPOINT ["java", "-jar", "app.jar"]
