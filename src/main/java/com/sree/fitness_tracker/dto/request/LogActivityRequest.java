@@ -18,18 +18,18 @@ public class LogActivityRequest {
     @Schema(description = "Date you log activity", example = "2026-04-14")
     private LocalDate date;
 
-    @Schema(description = "Date you log activity", example = "2026-04-14")
+    @Schema(description = "SleepHours", example = "7")
     private BigDecimal sleepHours;
 
-    @Schema(description = "Date you log activity", example = "2026-04-14")
+    @Schema(description = "Number of steps", example = "8000")
     private Integer walkingSteps;
 
-    @Schema(description = "Date you log activity", example = "2026-04-14")
+    @Schema(description = "Hydration litres", example = "3.5")
     private BigDecimal hydrationLitres;
 
-    @Schema(description = "Date you log activity", example = "2026-04-14")
+    @Schema(description = "Exercise in minutes", example = "45")
     private Integer exerciseMinutes;
 
-    @Schema(description = "Date you log activity", example = "2026-04-14")
+    @Schema(description = "activityStatus", example = "PENDING")
     private ActivityStatus activityStatus;
 }
